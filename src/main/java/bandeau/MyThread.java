@@ -24,7 +24,9 @@ public class MyThread extends Thread {
     
     @Override
     public void run() {
+        // Ressource partagée : bandeau
         synchronized(bandeau) {
+            // On exécute les évènements du scénario
             for (ScenarioElement element : myElements) {
                 for (int repeats = 0; repeats < element.repeats; repeats++) {
                     element.effect.playOn(bandeau);

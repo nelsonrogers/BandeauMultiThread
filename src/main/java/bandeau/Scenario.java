@@ -34,13 +34,14 @@ public class Scenario {
     public void addEffect(Effect e, int repeats) {
         myElements.add(new ScenarioElement(e, repeats));
     }
-
+    
     /**
      * Jouer ce scenario sur un bandeau
      *
      * @param b le bandeau ou s'afficher.
      */
     public void playOn(Bandeau b) {
+        // On créé un Thread
         MyThread t = new MyThread(b, this.myElements);
         t.start();
     }
