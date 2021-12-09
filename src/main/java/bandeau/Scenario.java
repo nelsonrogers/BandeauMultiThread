@@ -1,6 +1,8 @@
 package bandeau;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Classe utilitaire pour représenter la classe-association UML
@@ -39,10 +41,7 @@ public class Scenario {
      * @param b le bandeau ou s'afficher.
      */
     public void playOn(Bandeau b) {
-        for (ScenarioElement element : myElements) {
-            for (int repeats = 0; repeats < element.repeats; repeats++) {
-                element.effect.playOn(b);
-            }
-        }
+        MyThread t = new MyThread(b, this.myElements);
+        t.start();
     }
 }
